@@ -36,7 +36,6 @@ app.post("/api/chat", async (req, res) => {
 });
 
 app.post("/api/tickets", async (req, res) => {
-  console.log("BODY:", req.body);
   const { titulo, descripcion } = req.body;
 
   if (!titulo || typeof titulo !== "string") {
@@ -54,7 +53,6 @@ app.post("/api/tickets", async (req, res) => {
 
     return res.status(201).json(ticket);
   } catch (error) {
-    console.error("ERROR EN BASE DE DATOS:", error);
     return res.status(500).json({ error: "No se pudo guardar el ticket." });
   }
 });
