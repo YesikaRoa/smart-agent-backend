@@ -57,6 +57,19 @@ app.post("/api/tickets", async (req, res) => {
   }
 });
 
+app.get("/api/tickets", async (req, res) => {
+  try {
+    const tickets = await prisma.ticket.findMany({
+      orderBy: {
+        fechaCreacion: "desc", 
+      },
+    });
+    return res.status(200).json(tickets);
+  } catch (error) {
+    console.error("Error al obtener tickets:", error);
+    return res.status(500).json({ error: "No se pudieron recuperar los tickets." });
+  }
+});
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
