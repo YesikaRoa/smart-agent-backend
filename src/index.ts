@@ -66,6 +66,7 @@ app.post("/api/tickets", async (req, res) => {
 app.get("/api/tickets", async (req, res) => {
   try {
     const tickets = await prisma.ticket.findMany({
+      take: 20,
       orderBy: {
         fechaCreacion: "desc", 
       },
