@@ -10,7 +10,7 @@ const PORT = Number(process.env.PORT) || 3000;
 const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
 
 app.use(cors({
-  origin: ["http://localhost:5173", "https://smart-agentt.netlify.app/"],
+  origin: ["http://localhost:5173", "https://smart-agentt.netlify.app"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
